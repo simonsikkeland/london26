@@ -39,7 +39,7 @@ function distLine(p) {
 }
 
 /* ---------- Tabs ---------- */
-const PANELS = ["program", "kart", "mat", "gjore", "cupen", "praktisk"];
+const PANELS = ["program", "kart", "mat", "gjore", "cupen", "praktisk", "pakkeliste"];
 let map;
 
 function showPanel() {
@@ -172,6 +172,47 @@ function renderPractical() {
   $("#people").innerHTML = TRIP.players.map((n) => `<li>${esc(n)}${n.startsWith("Marius") ? " 🏠" : ""}</li>`).join("");
 }
 
+/* ---------- Pakkeliste ---------- */
+const PACK_KEY = "london26-pack-v1";
+
+function loadPacked() {
+  try { return new Set(JSON.parse(localStorage.getItem(PACK_KEY)) || []); } catch { return new Set(); }
+}
+
+function renderPacking() {
+  const packed = loadPacked();
+  $("#packing").innerHTML = PACKING.map((g) => `
+    <div class="card">
+      <h3>${esc(g.group)}</h3>
+      <ul class="checklist">
+        ${g.items.map((it) => `<li><label>
+          <input type="checkbox" data-pack="${esc(it.t)}" ${packed.has(it.t) ? "checked" : ""}>
+          <span><span class="t">${esc(it.t)}</span>${it.note ? `<small>${esc(it.note)}</small>` : ""}</span>
+        </label></li>`).join("")}
+      </ul>
+    </div>`).join("");
+  updatePackProgress();
+}
+
+function updatePackProgress() {
+  const boxes = [...document.querySelectorAll("[data-pack]")];
+  const done = boxes.filter((b) => b.checked).length;
+  $("#pack-count").textContent = done === boxes.length ? "Alt er pakket! ✈️" : `${done} av ${boxes.length} pakket`;
+  $("#pack-bar").style.width = `${(done / boxes.length) * 100}%`;
+}
+
+$("#packing").addEventListener("change", () => {
+  const packed = [...document.querySelectorAll("[data-pack]:checked")].map((b) => b.dataset.pack);
+  try { localStorage.setItem(PACK_KEY, JSON.stringify(packed)); } catch { /* privat modus o.l. */ }
+  updatePackProgress();
+});
+
+$("#pack-reset").addEventListener("click", () => {
+  if (!confirm("Fjerne alle avkrysninger?")) return;
+  try { localStorage.removeItem(PACK_KEY); } catch { /* privat modus o.l. */ }
+  renderPacking();
+});
+
 /* ---------- Kart ---------- */
 const markers = {};
 const layers = {};
@@ -266,4 +307,5 @@ renderProgram();
 renderFood();
 renderSee();
 renderPractical();
+renderPacking();
 showPanel();

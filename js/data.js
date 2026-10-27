@@ -284,6 +284,7 @@ const QUIZ = [
 ];
 
 const PRACTICAL = [
+  { title: "⚠️ UK ETA", text: "Nordmenn må ha godkjent ETA (elektronisk reisetillatelse) før de reiser til Storbritannia. Søk i appen «UK ETA» eller på gov.uk/eta (ca. £20, gyldig i 2 år). Gjør det minst en uke før, og unngå tredjepartssider som tar ekstra betalt." },
   { title: "Tid", text: "Storbritannia er én time bak Norge (GMT i november)." },
   { title: "T-bane & buss", text: "Bruk kontaktløst bankkort eller mobil direkte på leseren, og bruk samme kort inn og ut. Det er dagsmaks på prisen, så dere slipper Oyster-kort. Hver person må ha sitt eget kort." },
   { title: "Fra flyplassen", text: "Heathrow: Piccadilly line direkte til Earl's Court, og bytt til District line til High Street Kensington (ca. 50 min). Eller Elizabeth line til Paddington, og Circle line derfra. Gatwick: Gatwick Express eller Southern til Victoria, og Circle/District derfra." },
@@ -293,4 +294,47 @@ const PRACTICAL = [
   { title: "Remembrance Sunday", text: "Søndag 8. november minnes britene de falne i krig, med to minutters stillhet klokka 11:00 og valmuer (poppies) på jakkeslaget. Vis respekt." },
   { title: "Bonfire Night-helg", text: "5. november er Guy Fawkes Night, og helgen etter er det fyrverkeri rundt i byen. Sjekk lokale arrangementer for lørdag kveld." },
   { title: "Nødnummer", text: "999 (112 fungerer også). Ikke akutt: 111 (helse) og 101 (politi)." },
+];
+
+// Pakkeliste. Avkrysning lagres på hver enkelt mobil.
+const PACKING = [
+  { group: "Må ha", items: [
+    { t: "Pass", note: "Gyldig hele turen" },
+    { t: "Godkjent UK ETA", note: "Appen «UK ETA» eller gov.uk/eta. Søk minst en uke før!" },
+    { t: "Kampbillett på mobilen", note: "Last den ned før avreise" },
+    { t: "Bankkort med kontaktløs betaling", note: "Pluss et reservekort" },
+    { t: "Boardingkort / flybillett" },
+    { t: "Reiseforsikring og europeisk helsetrygdkort" },
+  ]},
+  { group: "Elektronikk", items: [
+    { t: "Mobil og lader" },
+    { t: "UK-adapter (type G)", note: "Tips: én adapter og en norsk grenkontakt dekker flere ladere" },
+    { t: "Powerbank", note: "Kampdagen blir lang" },
+    { t: "Hodetelefoner" },
+  ]},
+  { group: "Klær (november: ca. 8–12 °C og regn)", items: [
+    { t: "Vanntett jakke" },
+    { t: "Gode sko til mye gåing" },
+    { t: "Lue, hansker og varm genser", note: "Du sitter stille ute i to timer ved Themsen" },
+    { t: "Én pen skjorte eller genser til middagene" },
+    { t: "Undertøy og sokker for tre dager" },
+    { t: "Paraply (liten)" },
+  ]},
+  { group: "Kampdag", items: [
+    { t: "Minst mulig i lommene", note: "Store vesker blir avvist ved inngangen" },
+    { t: "Riktige farger", note: "Ikke Newcastle-drakt blant Fulham-fans (eller omvendt)" },
+    { t: "Kontanter til en pint eller to", note: "Valgfritt; nesten alt tar kort" },
+  ]},
+  { group: "Toalettsaker", items: [
+    { t: "Tannbørste og tannkrem" },
+    { t: "Deodorant, barberhøvel o.l." },
+    { t: "Faste medisiner" },
+    { t: "Paracet / Ibux", note: "Til lørdag og søndag morgen" },
+    { t: "Ørepropper", note: "Hvis romkameraten snorker" },
+  ]},
+  { group: "Til gjengen og Marius", items: [
+    { t: "Norsk hjemlengsel-pakke til Marius", note: "Brunost, Kvikk Lunsj, Smash, kaviar på tube …" },
+    { t: "Snus til eget bruk", note: "Snus selges ikke i Storbritannia" },
+    { t: "Fulladet mobil til dommeren", note: "London-cupens poengtavle bor der" },
+  ]},
 ];

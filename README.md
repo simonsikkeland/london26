@@ -37,6 +37,7 @@ Alt innhold ligger i [`js/data.js`](js/data.js):
 - `PROGRAM`: tidsplanen
 - `QUESTS`, `PENALTIES`, `QUIZ`: innholdet i London-cupen (Marius bør gjerne legge inn egne spørsmål!)
 - `PRACTICAL`: praktisk info
+- `PACKING`: pakkelisten (avkrysninger lagres på hver enkelt mobil)
 
 > ⚠️ Avspark er satt til lørdag 7. november kl. 15:00. Premier League-kamper kan bli flyttet på grunn av TV, så sjekk tidspunktet nærmere kampen. Husk også å bestille bord for 8 der det er nevnt.
 
