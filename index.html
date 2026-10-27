@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>London 26</title>
+  <meta name="description" content="Program, kart og London-cupen for gjengens tur til Marius i London, 6.–8. november 2026.">
+  <meta name="theme-color" content="#13233f">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='none' stroke='%23d6262b' stroke-width='14'/><rect x='4' y='40' width='92' height='20' fill='%2313233f'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="kicker">6.–8. november 2026 · Kensington &amp; Notting Hill</p>
+      <h1>London <span>26</span></h1>
+      <p class="lede">Åtte nordmenn, én Marius og én kamp på Craven Cottage.</p>
+      <div class="countdown" id="countdown" aria-live="polite"></div>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Seksjoner">
+    <a href="#program">Program</a>
+    <a href="#kart">Kart</a>
+    <a href="#mat">Spis &amp; drikk</a>
+    <a href="#gjore">Ting å gjøre</a>
+    <a href="#cupen">London-cupen 🏆</a>
+    <a href="#praktisk">Praktisk</a>
+  </nav>
+
+  <main>
+    <!-- PROGRAM -->
+    <section id="program" class="panel">
+      <div class="section-head">
+        <h2>Program</h2>
+        <p>Et forslag, ikke et krav. Alle steder ligger maks 15 minutter fra hotellet eller Marius, bortsett fra kampen.</p>
+      </div>
+      <div class="key-places" id="key-places"></div>
+      <div class="days" id="days"></div>
+    </section>
+
+    <!-- KART -->
+    <section id="kart" class="panel">
+      <div class="section-head">
+        <h2>Kart</h2>
+        <p>Trykk på en markør for detaljer og veibeskrivelse. Bruk filtrene for å vise bare det du leter etter.</p>
+      </div>
+      <div class="filters" id="map-filters"></div>
+      <div id="map" class="map" role="region" aria-label="Kart over London"></div>
+    </section>
+
+    <!-- MAT -->
+    <section id="mat" class="panel">
+      <div class="section-head">
+        <h2>Spis &amp; drikk</h2>
+        <p>Puber, barer og restauranter langs ruta. Bestill bord for 8 der det står «bestill».</p>
+      </div>
+      <div class="filters" id="food-filters"></div>
+      <div class="cards" id="food-list"></div>
+    </section>
+
+    <!-- AKTIVITETER -->
+    <section id="gjore" class="panel">
+      <div class="section-head">
+        <h2>Ting å gjøre</h2>
+        <p>I nærheten av hotellet, Marius og stadion.</p>
+      </div>
+      <div class="cards" id="see-list"></div>
+    </section>
+
+    <!-- LONDON-CUPEN -->
+    <section id="cupen" class="panel">
+      <div class="section-head">
+        <h2>London-cupen 🏆</h2>
+        <p>Konkurransen som går gjennom hele helgen. Én dommer fører poengene på mobilen sin og deler stillingen med gjengen via lenke.
+          Vinneren kåres til <strong>Kongen av Kensington</strong> og får trofeet (den styggeste suveniren fra Portobello). Sistemann spanderer første runde på søndagsmiddagen.</p>
+      </div>
+
+      <div class="import-banner" id="import-banner" hidden>
+        <p><strong>Noen har delt en stilling med deg.</strong> Vil du laste den inn? Det overskriver det som er lagret på denne mobilen.</p>
+        <div class="row">
+          <button class="btn primary" id="import-yes">Last inn</button>
+          <button class="btn" id="import-no">Nei takk</button>
+        </div>
+      </div>
+
+      <div class="cup-grid">
+        <div class="card board">
+          <div class="card-head">
+            <h3>Stilling</h3>
+            <div class="row">
+              <button class="btn small" id="share-link">Del lenke</button>
+              <button class="btn small" id="share-text">Kopier tekst</button>
+            </div>
+          </div>
+          <ol class="standings" id="standings"></ol>
+          <p class="hint" id="share-status" role="status"></p>
+        </div>
+
+        <div class="card">
+          <h3>Gi poeng</h3>
+          <form id="award-form" class="award">
+            <label>Hvem
+              <select id="award-who"></select>
+            </label>
+            <label>Hvorfor
+              <input id="award-reason" type="text" placeholder="F.eks. vant quizrunde 3" maxlength="80">
+            </label>
+            <div class="row pts-row">
+              <button type="button" class="btn chip-btn" data-pts="-2">−2</button>
+              <button type="button" class="btn chip-btn" data-pts="-1">−1</button>
+              <button type="button" class="btn chip-btn primary" data-pts="1">+1</button>
+              <button type="button" class="btn chip-btn primary" data-pts="2">+2</button>
+              <button type="button" class="btn chip-btn primary" data-pts="3">+3</button>
+            </div>
+          </form>
+          <details class="penalties">
+            <summary>Straffe-ideer</summary>
+            <ul id="penalty-list"></ul>
+          </details>
+          <h4>Logg</h4>
+          <ul class="log" id="log"></ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3>Lag</h3>
+          <button class="btn small" id="draw-teams">Trekk lag</button>
+        </div>
+        <p class="hint">To lag à fire til lagøvelser, f.eks. quiz på vors. Lagpoeng gis til alle på laget via «Gi poeng».</p>
+        <div class="teams" id="teams"></div>
+      </div>
+
+      <div class="card">
+        <h3>Oppdrag <span class="muted">(side quests)</span></h3>
+        <p class="hint">Trykk på navnet til den som har klart oppdraget. Merket <span class="tag">først til mølla</span> betyr at bare én kan få poengene. Bevis kreves (bilde eller video i gruppechatten).</p>
+        <div class="quests" id="quests"></div>
+      </div>
+
+      <div class="card">
+        <h3>Kamptips: Fulham – Newcastle</h3>
+        <p class="hint">Leveres før avspark. <b>5p</b> for eksakt resultat, <b>2p</b> for riktig utfall (H/U/B), <b>3p</b> for riktig første målscorer, <b>2p</b> til den som er nærmest antall gule kort.</p>
+        <div class="table-wrap">
+          <table class="tips" id="tips"></table>
+        </div>
+      </div>
+
+      <div class="cup-grid">
+        <div class="card">
+          <h3>Finale: minigolf ⛳</h3>
+          <p class="hint">Før inn totalt antall slag fra Puttshack. Plasseringspoeng: 10, 8, 6, 5, 4, 3, 2, 1. Ved likt antall slag deler man plassering.</p>
+          <div class="golf" id="golf"></div>
+        </div>
+
+        <div class="card">
+          <h3>London-quiz</h3>
+          <p class="hint">Dommeren leser høyt. Gi poeng til vinneren av hvert spørsmål via «Gi poeng» (eller til hele laget).</p>
+          <ol class="quiz" id="quiz"></ol>
+        </div>
+      </div>
+
+      <div class="danger-zone">
+        <button class="btn ghost" id="reset">Nullstill London-cupen</button>
+      </div>
+    </section>
+
+    <!-- PRAKTISK -->
+    <section id="praktisk" class="panel">
+      <div class="section-head">
+        <h2>Praktisk</h2>
+      </div>
+      <div class="cards practical" id="practical"></div>
+      <div class="card people">
+        <h3>Gjengen</h3>
+        <ul id="people"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>London 26 · Laget for gjengen · Kartdata © OpenStreetMap-bidragsytere</p>
+  </footer>
+
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/cup.js"></script>
+</body>
+</html>
