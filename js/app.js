@@ -99,18 +99,33 @@ function renderProgram() {
       <a href="${mapsUrl(p)}" target="_blank" rel="noopener">Åpne i kart →</a>
     </div>`).join("");
 
+  const groups = TRIP.groups || {};
+  const badge = (g) => `<span class="grp" style="background:${groups[g].color}">${esc(groups[g].label)}</span>`;
+  const legend = (day) => {
+    if (!day.items.some((it) => it.group)) return "";
+    return `<div class="legend">
+      ${Object.keys(groups).map((g) => {
+        const who = groups[g].members.length ? ` (${groups[g].members.map(esc).join(", ")})` : "";
+        return `<span>${badge(g)} lander ${esc(groups[g].arrives)}${who}</span>`;
+      }).join("")}
+      <span><span class="grp all">Alle</span> uten merke</span>
+    </div>`;
+  };
+
   $("#days").innerHTML = PROGRAM.map((day) => `
     <article class="card day">
       <h3>${esc(day.day)}</h3>
       <p class="theme">${esc(day.theme)}</p>
+      ${legend(day)}
       <ol class="timeline">
         ${day.items.map((it) => {
           const p = byId[it.place];
-          return `<li class="stop ${it.highlight ? "highlight" : ""}">
+          const g = it.group && groups[it.group];
+          return `<li class="stop ${it.highlight ? "highlight" : ""} ${g ? "grouped" : ""}" ${g ? `style="--grp:${g.color}"` : ""}>
             <span class="time">${esc(it.time)}</span>
             <span class="node"></span>
             <div class="body">
-              <h4>${esc(it.title)}</h4>
+              <h4>${g ? badge(it.group) : ""}${esc(it.title)}</h4>
               <p>${esc(it.text)}</p>
               ${p ? `<a href="#kart" data-focus="${p.id}">📍 ${esc(p.name)}</a> · <a href="${directionsUrl(p)}" target="_blank" rel="noopener">Veibeskrivelse</a>` : ""}
             </div>
@@ -251,9 +266,9 @@ function initMap() {
     markers[p.id] = m;
   });
 
-  // Rute til kampen (forenklet): hotell → High St Ken → Earl's Court → Putney Bridge → stadion
+  // Rute til kampen (forenklet): hotell → Notting Hill Gate → High St Ken → Earl's Court → Putney Bridge → stadion
   L.polyline([
-    [byId.hotel.lat, byId.hotel.lng], [51.5009, -0.1925], [51.4920, -0.1934], [51.4872, -0.1953],
+    [byId.hotel.lat, byId.hotel.lng], [51.5090, -0.1966], [51.5009, -0.1925], [51.4920, -0.1934], [51.4872, -0.1953],
     [51.4801, -0.1950], [51.4752, -0.2013], [51.4681, -0.2089], [51.4715, -0.2175], [byId.stadium.lat, byId.stadium.lng],
   ], { color: "#d6262b", weight: 4, opacity: .7, dashArray: "8 8" })
     .bindTooltip("Ruta til kampen (District line)", { sticky: true })

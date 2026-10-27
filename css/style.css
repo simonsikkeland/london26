@@ -193,6 +193,15 @@ main { max-width: 1080px; margin: 0 auto; padding: 28px 16px 48px; }
 }
 .stop.highlight .node { border-color: var(--red); background: var(--red); box-shadow: 0 0 0 4px rgba(214, 38, 43, .2); }
 .stop .body h4 { font-family: var(--sans); font-size: 16px; font-weight: 700; margin: 0; }
+.stop.grouped .node { border-color: var(--grp); }
+.grp {
+  display: inline-block; vertical-align: 2px;
+  font-family: var(--sans); font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .05em;
+  color: #fff; padding: 2px 7px; border-radius: 6px; margin-right: 6px;
+}
+.grp.all { background: var(--navy); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; color: var(--muted); margin: -4px 0 14px; }
 .stop.highlight .body h4 { color: var(--red-dark); }
 .stop .body p { margin: 2px 0 0; font-size: 15px; color: #33363d; }
 .stop .body a { font-size: 13px; font-weight: 600; text-decoration: none; }
