@@ -181,10 +181,9 @@ function initMap() {
   if (typeof L === "undefined") { $("#map").textContent = "Kartet kunne ikke lastes."; return; }
 
   map = L.map("map", { scrollWheelZoom: false, tap: true }).setView([51.495, -0.20], 14);
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
-    subdomains: "abcd",
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-bidragsytere',
   }).addTo(map);
 
   Object.keys(CATEGORIES).forEach((k) => { layers[k] = L.layerGroup().addTo(map); });

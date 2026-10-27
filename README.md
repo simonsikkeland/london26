@@ -26,7 +26,7 @@ Siden er helt statisk og har ingen server. Én person er **dommer** og fører po
 2. Under *Build and deployment*, velg **Deploy from a branch** og velg branchen med koden og mappen `/ (root)`.
 3. Siden blir tilgjengelig på `https://<brukernavn>.github.io/london26/`.
 
-Lokalt: `python3 -m http.server` i mappen, og åpne http://localhost:8000.
+Lokalt: `python3 -m http.server` i mappen, og åpne http://localhost:8000. Ikke dobbeltklikk på `index.html`, for OpenStreetMap avviser kartfliser til sider som åpnes direkte som fil (`file://`).
 
 ## Endre innhold
 
