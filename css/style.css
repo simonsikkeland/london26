@@ -323,7 +323,10 @@ select, input[type="text"], input[type="number"] {
 .checklist small { display: block; color: var(--muted); font-size: 13px; font-weight: 400; }
 .checklist input:checked + span .t { color: var(--muted); text-decoration: line-through; }
 
-.foot { text-align: center; color: var(--muted); font-size: 13px; padding: 24px 16px 40px; }
+.section-head p.suggest { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-top: 12px; font-size: 14px; font-weight: 600; }
+.section-head p.suggest a.btn { text-decoration: none; }
+.foot a { color: var(--navy-2); font-weight: 600; }
+.foot {text-align: center; color: var(--muted); font-size: 13px; padding: 24px 16px 40px; }
 
 @media (max-width: 520px) {
   .card { padding: 14px; }

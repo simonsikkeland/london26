@@ -1,0 +1,65 @@
+name: Endringsforslag
+description: Foreslå en endring i programmet, kartet, London-cupen eller noe annet på siden.
+title: "[Endring] "
+labels: ["endringsforslag"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Takk for forslaget! Simon samler forslagene og får dem lagt inn på siden.
+        Én endring per forslag gjør det enklest å følge opp.
+  - type: dropdown
+    id: navn
+    attributes:
+      label: Hvem er du?
+      options:
+        - André
+        - Arya
+        - Bjørn
+        - Fredrik
+        - Håkon
+        - Marius
+        - Simon
+        - Øystein
+    validations:
+      required: true
+  - type: dropdown
+    id: omrade
+    attributes:
+      label: Hva gjelder det?
+      options:
+        - Program
+        - Kart / nytt sted
+        - Spis & drikk
+        - Ting å gjøre
+        - London-cupen (oppdrag, quiz, regler)
+        - Pakkeliste
+        - Praktisk info
+        - Annet
+    validations:
+      required: true
+  - type: dropdown
+    id: dag
+    attributes:
+      label: Hvilken dag?
+      options:
+        - Gjelder ikke en bestemt dag
+        - Fredag 6. november
+        - Lørdag 7. november
+        - Søndag 8. november
+    validations:
+      required: true
+  - type: textarea
+    id: beskrivelse
+    attributes:
+      label: Hva vil du endre?
+      description: Vær gjerne konkret, med klokkeslett, navn på sted og hva som skal inn eller ut.
+      placeholder: "F.eks. Flytt brunch lørdag til 10:00 og bytt Granger & Co med ..."
+    validations:
+      required: true
+  - type: input
+    id: lenke
+    attributes:
+      label: Lenke (valgfritt)
+      description: Til stedet, en booking, Google Maps eller lignende.
+      placeholder: https://

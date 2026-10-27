@@ -28,6 +28,10 @@ Siden er helt statisk og har ingen server. Én person er **dommer** og fører po
 
 Lokalt: `python3 -m http.server` i mappen, og åpne http://localhost:8000. Ikke dobbeltklikk på `index.html`, for OpenStreetMap avviser kartfliser til sider som åpnes direkte som fil (`file://`).
 
+## Endringsforslag
+
+Deltakerne sender inn forslag via **[skjemaet](https://github.com/simonsikkeland/london26/issues/new?template=endringsforslag.yml)** (lenke finnes også på siden). Forslagene havner som issues merket «[Endring]». Når de er implementert, lukkes de automatisk og føres i [ENDRINGSLOGG.md](ENDRINGSLOGG.md).
+
 ## Endre innhold
 
 Alt innhold ligger i [`js/data.js`](js/data.js):
