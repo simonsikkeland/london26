@@ -12,6 +12,8 @@ const TRIP = {
   start: "2026-11-06",
   end: "2026-11-08",
   kickoff: "2026-11-07T15:00:00Z", // 15:00 britisk tid (GMT i november)
+  // Quizen er skjult til vorset. Sett til true, eller åpne siden med ?quiz i adressen.
+  showQuiz: false,
   match: { home: "Fulham", away: "Newcastle", venue: "Craven Cottage" },
   players: [
     "André Pedersen",

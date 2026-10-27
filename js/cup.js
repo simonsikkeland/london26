@@ -206,6 +206,9 @@ function renderGolfScores() {
 }
 
 function renderQuiz() {
+  const visible = TRIP.showQuiz || new URLSearchParams(location.search).has("quiz");
+  $("#quiz-card").hidden = !visible;
+  $("#golf-quiz-grid").classList.toggle("cup-grid", visible);
   $("#quiz").innerHTML = QUIZ.map((x, i) => `<li>
       ${esc(x.q)} <button class="btn small" data-quiz="${i}">Vis svar</button>
       <span class="ans" id="ans-${i}" hidden>${esc(x.a)}</span>
