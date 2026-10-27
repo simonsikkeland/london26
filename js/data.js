@@ -102,6 +102,9 @@ const PLACES = [
     desc: "Stor pub og ølhage ved Themsen, 10 minutter nord for stadion langs elva. Fin post-match mens køen til T-banen går ned." },
 
   // ---- Mat ----
+  { id: "frame", cat: "food", name: "Frame", lat: 51.5152, lng: -0.1950,
+    area: "Notting Hill", addr: "39 Hereford Road, London W2 4AB",
+    desc: "Marius har booket bord fredag kl. 19:00. Tapas, vin og cocktails i vintage-lokaler; spicy margarita er husets kjennemerke." },
   { id: "dishoom", cat: "food", name: "Dishoom Kensington", lat: 51.5014, lng: -0.1911,
     area: "Kensington", addr: "The Barkers Building, Derry Street, London W8 5SE",
     desc: "Bombay-kafé med legendarisk mat. Rett ved hotellet. Ta bacon naan til frokost, eller kom på kvelden for en skikkelig middag." },
@@ -179,10 +182,10 @@ const PROGRAM = [
         text: "Slipp bagasjen. Hvis rommene ikke er klare, kan dere ta en kjapp runde i Kensington Gardens rett over gata." },
       { time: "17:00", title: "Velkomstpils på The Churchill Arms", place: "churchill",
         text: "Marius tar imot. Her starter London-cupen: lagene trekkes, og alle leverer kamptipset til dommeren." },
-      { time: "19:30", title: "Middag: Dishoom Kensington", place: "dishoom",
-        text: "Bestill bord for 8 på forhånd. Alternativ: thaimaten på Churchill Arms, så slipper dere å flytte på dere." },
+      { time: "19:00", title: "Middag: Frame ✅ booket", place: "frame", highlight: true,
+        text: "Marius har booket bord. Tapas, vin og cocktails i Hereford Road. Fra Churchill Arms er det ca. 15 minutters gange via Notting Hill Gate, så gå senest 18:40." },
       { time: "22:00", title: "Kveld i Notting Hill", place: "champion",
-        text: "Rusle opp til Notting Hill Gate. The Champion for flere pints, eller Notting Hill Arts Club om formen er god." },
+        text: "Fra Frame er det kort vei videre. Velg The Champion for flere pints, cocktails i Portobello Road, eller Notting Hill Arts Club om formen er god." },
     ],
   },
   {
