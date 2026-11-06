@@ -11,6 +11,13 @@ Slik fungerer det:
 
 ---
 
+## 6. november 2026
+
+- **Lørdag kl. 19:30: middag på Nam Long Le Shaker** (booket), 159 Old Brompton Road. Med rute fra The Crabtree via Hammersmith og Piccadilly line. Vors og quiz hos Marius er flyttet til nachspiel kl. 22.
+- **Fredagens møteplass avhenger av været:** The Westbourne hvis det er fint, The Churchill Arms hvis det regner.
+- **Lunsj på Dishoom fredag** for gruppe 1 (Marius anbefaler).
+- **Marius lander ca. kl. 13** fredag.
+
 ## 27. oktober 2026
 
 - **Vi heier på Fulham:** draktjakt (BOBB 14) i klubbutikken på Craven Cottage før kamp. Pre-match er flyttet fra The Eight Bells (bortefans) til The Golden Lion, og det er lagt til nye Fulham-oppdrag i London-cupen.

@@ -127,7 +127,8 @@ function renderProgram() {
             <div class="body">
               <h4>${g ? badge(it.group) : ""}${esc(it.title)}</h4>
               <p>${esc(it.text)}</p>
-              ${p ? `<a href="#kart" data-focus="${p.id}">📍 ${esc(p.name)}</a> · <a href="${directionsUrl(p)}" target="_blank" rel="noopener">Veibeskrivelse</a>` : ""}
+              ${[p, byId[it.alt]].filter(Boolean).map((x) =>
+                `<a href="#kart" data-focus="${x.id}">📍 ${esc(x.name)}</a> · <a href="${directionsUrl(x)}" target="_blank" rel="noopener">Veibeskrivelse</a>`).join("<br>")}
             </div>
           </li>`;
         }).join("")}
