@@ -7,12 +7,15 @@ function esc(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 }
 
+// Steder med addrOnly (f.eks. private adresser) søkes opp bare på adresse
+const mapsQuery = (p) => (p.addrOnly ? p.addr : `${p.name}, ${p.addr}`);
+
 function mapsUrl(p) {
-  return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(`${p.name}, ${p.addr}`);
+  return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(mapsQuery(p));
 }
 
 function directionsUrl(p, mode = "transit") {
-  return "https://www.google.com/maps/dir/?api=1&travelmode=" + mode + "&destination=" + encodeURIComponent(`${p.name}, ${p.addr}`);
+  return "https://www.google.com/maps/dir/?api=1&travelmode=" + mode + "&destination=" + encodeURIComponent(mapsQuery(p));
 }
 
 // Luftlinje i meter

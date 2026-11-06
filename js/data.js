@@ -47,7 +47,7 @@ const PLACES = [
   { id: "hotel", cat: "base", name: "DoubleTree by Hilton London – Hyde Park", lat: 51.5101, lng: -0.1910,
     area: "Bayswater", addr: "150 Bayswater Road, London W2 4RT",
     desc: "Hotellet vårt, rett over gata fra Kensington Gardens. 7 minutters gange til Marius, og nær Queensway og Notting Hill Gate stasjon. Tlf. +44 20 7229 1212." },
-  { id: "marius", cat: "base", name: "Marius' leilighet", lat: 51.5096, lng: -0.1971,
+  { id: "marius", cat: "base", name: "Marius' leilighet", lat: 51.5096, lng: -0.1971, addrOnly: true,
     area: "Notting Hill", addr: "1 Pembridge Gardens, London W2",
     desc: "Marius bor her, rett ved Notting Hill Gate. 7 minutters gange vest for hotellet langs Bayswater Road." },
   { id: "stadium", cat: "base", name: "Craven Cottage", lat: 51.4749, lng: -0.2217,
