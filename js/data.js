@@ -12,8 +12,8 @@ const TRIP = {
   start: "2026-11-06",
   end: "2026-11-08",
   kickoff: "2026-11-07T15:00:00Z", // 15:00 britisk tid (GMT i november)
-  // Quizen er skjult til vorset. Sett til true, eller åpne siden med ?quiz i adressen.
-  showQuiz: false,
+  // Sett til false for å skjule quizen (den kan da vises med ?quiz i adressen).
+  showQuiz: true,
   match: { home: "Fulham", away: "Newcastle", venue: "Craven Cottage" },
   // Ankomst fredag. Legg gjerne inn navn i members.
   groups: {

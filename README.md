@@ -10,7 +10,7 @@ En statisk nettside for gjengens tur til Marius i London, 6.–8. november 2026.
 - **London-cupen 🏆** er konkurransen som går gjennom hele helgen:
   - **Oppdrag (side quests):** poeng for å fullføre små utfordringer underveis
   - **Kamptips:** resultat, første målscorer og antall gule kort
-  - **London-quiz:** kjøres på vors hos Marius. Den er skjult inntil videre; åpne siden med `?quiz` i adressen (f.eks. `.../london26/?quiz#cupen`) for å vise den, eller sett `showQuiz: true` i `js/data.js`.
+  - **London-quiz:** kjøres på nachspiel hos Marius lørdag. Sett `showQuiz: false` i `js/data.js` for å skjule den igjen.
   - **Finale:** minigolf på Puttshack søndag, med plasseringspoeng
   - **Lagtrekning** og fri utdeling av pluss- og minuspoeng (med logg og angre)
   - Vinneren blir **Kongen av Kensington**, og sistemann spanderer første runde.

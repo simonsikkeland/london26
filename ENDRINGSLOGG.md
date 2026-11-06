@@ -17,6 +17,7 @@ Slik fungerer det:
 - **Fredagens møteplass avhenger av været:** The Westbourne hvis det er fint, The Churchill Arms hvis det regner.
 - **Lunsj på Dishoom fredag** for gruppe 1 (Marius anbefaler).
 - **Marius lander ca. kl. 13** fredag.
+- **Quizen er tilgjengelig** i London-cupen.
 
 ## 27. oktober 2026
 
